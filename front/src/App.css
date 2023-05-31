@@ -1,0 +1,46 @@
+:root{
+    background-color: rgb(57, 57, 57);
+}
+
+.App{
+    display: flex;
+    justify-content: center;
+    align-items: center;padding: 40px 0px;
+}
+
+.div-data{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 80%;
+    border: 1px solid white;
+    text-align: center;
+    color: white;
+}
+
+.data-div{
+    outline: 1px solid rgb(110, 110, 110);
+    color: white;
+    font-size: 18px;
+}
+
+.data-div>*{
+    padding: 5px;
+    outline: 1px solid rgb(110, 110, 110);
+}
+
+.muybajo{
+    background-color: rgb(37, 88, 37);
+}
+
+.bajo{
+    background-color: rgb(130, 130, 47);
+}
+
+.medio{
+    background-color: orange;
+}
+
+.alto{
+    background-color: red;
+}
+

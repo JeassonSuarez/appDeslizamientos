@@ -1,7 +1,7 @@
 import pool from "../mysql.js";
 
 export const obtenerDatos = async (req, res) => {
-    const resultado = await pool.query("SELECT * FROM datos");
+    const resultado = await pool.query("SELECT * FROM datos ORDER BY fecha DESC");
     if (resultado.length>0) {
         res.status(200).json({hay: true ,data: resultado});
     }else{
