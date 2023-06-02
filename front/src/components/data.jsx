@@ -5,7 +5,7 @@ const Data = () => {
   const [dato, setDato] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/listarDatos`, {
+    fetch(`http://localhost:3000/listarDatos`, {
       type: "no-cors",
       method: "GET",
       headers: {
@@ -14,13 +14,14 @@ const Data = () => {
     })
       .then((respuesta) => respuesta.json())
       .then((respuesta) => {
+        console.log(respuesta);
         respuesta.hay ? setDato([...respuesta.data]) : alert("No hay datos");
         // console.log(respuesta.data);
       });
   }, []);
 
   setTimeout(() => {
-    fetch(`http://localhost:3001/listarDatos`, {
+    fetch(`http://localhost:3000/listarDatos`, {
       type: "no-cors",
       method: "GET",
       headers: {
@@ -43,11 +44,11 @@ const Data = () => {
             <p
               key={i}
               className={
-                parseFloat(e.lectura) < 263
+                parseFloat(e[3]) < 263
                   ? "muybajo"
-                  : parseFloat(e.lectura) < 525
+                  : parseFloat(e[3]) < 525
                   ? "bajo"
-                  : parseFloat(e.lectura) < 728
+                  : parseFloat(e[3]) < 728
                   ? "medio"
                   : "alto"
               }
@@ -64,16 +65,16 @@ const Data = () => {
             <p
               key={i}
               className={
-                parseFloat(e.lectura) < 263
+                parseFloat(e[3]) < 263
                   ? "muybajo"
-                  : parseFloat(e.lectura) < 525
+                  : parseFloat(e[3]) < 525
                   ? "bajo"
-                  : parseFloat(e.lectura) < 728
+                  : parseFloat(e[3]) < 728
                   ? "medio"
                   : "alto"
               }
             >
-              {e.nombreSensor}
+              {e[1]}
             </p>
           );
         })}
@@ -81,7 +82,7 @@ const Data = () => {
       <div className="data-div fecha">
         <h2>Fecha</h2>
         {dato.map((e, i) => {
-          const fecha = new Date(e.fecha);
+          const fecha = new Date(e[2]);
 
           const year = fecha.getFullYear();
           const month = ("0" + (fecha.getMonth() + 1)).slice(-2);
@@ -94,11 +95,11 @@ const Data = () => {
             <p
               key={i}
               className={
-                parseFloat(e.lectura) < 263
+                parseFloat(e[3]) < 263
                   ? "muybajo"
-                  : parseFloat(e.lectura) < 525
+                  : parseFloat(e[3]) < 525
                   ? "bajo"
-                  : parseFloat(e.lectura) < 728
+                  : parseFloat(e[3]) < 728
                   ? "medio"
                   : "alto"
               }
@@ -115,16 +116,16 @@ const Data = () => {
             <p
               key={i}
               className={
-                parseFloat(e.lectura) < 263
+                parseFloat(e[3]) < 263
                   ? "muybajo"
-                  : parseFloat(e.lectura) < 525
+                  : parseFloat(e[3]) < 525
                   ? "bajo"
-                  : parseFloat(e.lectura) < 728
+                  : parseFloat(e[3]) < 728
                   ? "medio"
                   : "alto"
               }
             >
-              {e.lectura}
+              {e[3]}
             </p>
           );
         })}
